@@ -60,6 +60,4 @@ The system continuously monitors air pollutants and room occupancy to automatica
 This project demonstrates a complete embedded system capable of monitoring and controlling indoor air quality intelligently using sensor feedback, PWM control, and real-time data logging. It highlights the integration of **hardware, firmware, and environmental intelligence** in one cohesive design.
 
 ---
----
 
-## 📂 Repository Structure
