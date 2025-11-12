@@ -48,12 +48,7 @@ The system continuously monitors air pollutants and room occupancy to automatica
 `I²C Communication` • `RTC Interfacing` • `SD Card Data Logging` • `OLED Display`  
 `Circuit Design` • `Power Electronics` • `L298N Motor Control` • `IoT Systems` • `Hardware Debugging`
 
-## 📂 Repository Structure
-├── /src/ # Source code (Arduino/Embedded C)
-├── /hardware/ # Circuit schematics and PCB files (if any)
-├── /data/ # Logged data samples (CSV/SD card logs)
-├── /docs/ # Reports, reflection sheet, and diagrams
-└── README.md # Project overview
+
 
 ## 🚀 Future Enhancements
 - Transition to **custom PCB design** for compactness and reliability  
