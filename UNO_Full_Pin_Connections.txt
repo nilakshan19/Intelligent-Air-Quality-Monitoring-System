@@ -1,0 +1,78 @@
+`zArduino UNO - Full Pin Connection Guide
+---------------------------------------
+
+1. OLED Display (SSD1306 I2C)
+   - SDA  -> A4  (I2C Data)
+   - SCL  -> A5  (I2C Clock)
+   - VCC  -> 5V
+   - GND  -> GND
+
+2. ENS160 Air Quality Sensor (I2C)
+   - SDA  -> A4  (Shared with OLED)
+   - SCL  -> A5  (Shared with OLED)
+   - VCC  -> 3.3V or 5V (check sensor label)
+   - GND  -> GND
+
+3. RTC DS3231 Module (I2C)
+   - SDA  -> A4  (Shared)
+   - SCL  -> A5  (Shared)
+   - VCC  -> 5V
+   - GND  -> GND
+
+4. SD Card Module (SPI)
+   - CS   -> D10
+   - MOSI -> D11
+   - MISO -> D12
+   - SCK  -> D13
+   - VCC  -> 5V
+   - GND  -> GND
+
+5. IR Sensors
+   - Outside Sensor OUT -> D2
+   - Inside Sensor OUT  -> D3
+   - VCC -> 5V
+   - GND -> GND
+
+6. L298N Motor Driver (Fan Control)
+   - ENA -> D9 (PWM)
+   - IN1 -> D8
+   - IN2 -> D7
+   - 12V -> External 12V for fan
+   - GND -> Common GND (Arduino + Power Supply)
+   - Motor + Output -> Fan +
+   - Motor - Output -> Fan -
+
+7. Status LEDs
+   - LED_GOOD (Fan OFF) -> D5 (with 220Ω resistor to GND)
+   - LED_BAD  (Fan ON)  -> D6 (with 220Ω resistor to GND)
+
+8. Power Notes
+   - All GNDs must be common (Arduino, SD, RTC, ENS160, OLED, L298N)
+   - If fan runs on 5V, use Arduino 5V directly.
+   - If fan runs on 12V, use external 12V supply and connect GND together.
+
+9. I2C Address Summary
+   - ENS160 -> 0x53
+   - OLED   -> 0x3C
+   - RTC    -> 0x68
+
+10. Text Diagram Summary
+   UNO      →   MODULE
+   -------------------------------
+   5V       →   OLED, ENS160, RTC, SD, IR sensors
+   GND      →   All modules
+   A4 (SDA) →   OLED, ENS160, RTC
+   A5 (SCL) →   OLED, ENS160, RTC
+   D10      →   SD CS
+   D11      →   SD MOSI
+   D12      →   SD MISO
+   D13      →   SD SCK
+   D2       →   IR Sensor OUT (Outside)
+   D3       →   IR Sensor OUT (Inside)
+   D5       →   LED (Fan OFF)
+   D6       →   LED (Fan ON)
+   D7       →   L298N IN2
+   D8       →   L298N IN1
+   D9 (PWM) →   L298N ENA
+   VIN/12V  →   L298N 12V input (if 12V fan)
+   GND      →   L298N GND (common)
